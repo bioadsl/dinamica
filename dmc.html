@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="js/funcao.js"></script>
+  <script src="js/jquery.js"></script>
+</head>
+<body>
+<!--div class="container" -->
+<p>Preencha os campos e adicione uma nova linha na planilha</p>
+
+<div class="table-responsive">
+ <table id="products-table" class="table table-hover table-bordered">
+  <tbody>
+	<tr>
+		<th>Demanda</th>
+		<th>Tester</th>
+		<th>CT</th>
+		<th>STM</th>
+		<th>Fluxo UC</th>
+		<th>Planejamento</th>
+		<th>Execução</th>
+		<th>Dev</th>
+		<th class="actions">Ações</td>
+	</tr>
+	
+	<tr>
+		  <td> <input type="text" id="ct" placeholder="Demanda" name="ct"></td>	
+		  
+		  <td> 
+		  <select name="Tester">   	        
+	      <option  value="fabricio" name="fabricio">Fabricio</option>
+		  <option  value="rodrigoB" name="rodrigoB">RodrigoB</option>
+		  <option  value="rodrigoS" name="rodrigoS">RodrigoS</option>
+		  <option  value="vivi" name="vivi">Vivi</option>
+		  <option  value="tiago" name="tiago">Tiago</option>
+     	  </select>
+		  </td>
+
+   		  <td> <input type="text" id="ct" placeholder="CT" name="ct"></td>
+		  <td> <input type="text" id="stm" placeholder="STM" name="stm"></td>
+		  <td> <input type="text" id="uc" placeholder="UC" name="uc"></td>
+		  <td> 
+		  <select name="planejamento">   
+	      <option  value="andamento" name="andamento">Andamento</option>
+		  <option  value="concluido" name="concluido">Concluído</option>
+     	  </select>	
+		  </td>
+		  
+		  		  
+		  <td> 
+		  <select name="execucao">   
+	      <option  value="ok" name="ok">OK</option>
+		  <option  value="teste" name="teste">Teste</option>
+		  <option  value="erro" name="erro">Erro</option>
+		  <option  value="reteste" name="reteste">Reteste</option>
+		  <option  value="corrigido" name="corrigido">Corrigido</option>
+		  <option  value="impedido" name="impedido">Impedido</option>
+     	  </select>
+		  </td>
+			
+		  <td> 
+		  <select name="Dev">   	        
+	      <option  value="fabricio" name="fabricio">Fabricio</option>
+		  <option  value="everson" name="everson">Everson</option>
+		  <option  value="cristiano" name="cristiano">Cristiano</option>
+		  <option  value="anderson" name="anderson">Anderson</option>
+		  <option  value="guilherme" name="guilherme">Guilherme</option>
+     	  </select>
+		  </td>
+		  <td class="actions"> 
+			<button class="btn btn-large btn-danger" onclick="RemoveTableRow(this)" type="button"> x </button>
+		  </td>	
+	</tr>		
+   </tbody>
+	<tfoot>
+		<tr>
+			<td colspan="9" style="text-align: left;"> 
+				<button class="btn btn-large btn-success" onclick="AddTableRow(this)" type="button"> + </button>
+			 </td>	
+		</tr>
+	</tfoot>
+
+   </table>
+
+</div>
+<!--/div-->
+</body>
+</html>

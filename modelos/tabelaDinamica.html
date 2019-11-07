@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/funcao.js"></script>
+
+  <script>
+  
+  
+// Quick and simple export target #table_id into a csv
+function download_table_as_csv(table_id) {
+    // Select rows from table_id
+    var rows = document.querySelectorAll('table#' + table_id + ' tr');
+    // Construct csv
+    var csv = [];
+    for (var i = 0; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll('td, th');
+        for (var j = 0; j < cols.length; j++) {
+            // Clean innertext to remove multiple spaces and jumpline (break csv)
+            var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+            // Escape double-quote with double-double-quote (see https://stackoverflow.com/questions/17808511/properly-escape-a-double-quote-in-csv)
+            data = data.replace(/"/g, '""');
+            // Push escaped string
+            row.push('"' + data + '"');
+        }
+        csv.push(row.join(';'));
+    }
+    var csv_string = csv.join('\n');
+    // Download it
+    var filename = 'export_' + table_id + '_' + new Date().toLocaleDateString() + '.csv';
+    var link = document.createElement('a');
+    link.style.display = 'none';
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+	
+</script>
+    
+ 
+  </head>
+
+<body>
+<!--div class="container" -->
+<p>Preencha os campos e adicione uma nova linha na planilha</p>
+<br>
+
+<div>
+    <table id="datagrid"></table>
+</div>
+
+<br>
+<div class="table-responsive">
+ <table id="products-table" class="table table-hover table-bordered">
+  <tbody>
+	<tr>
+		<th>Demanda</th>
+		<th>Tester</th>
+		<th>CT</th>
+		<th>STM</th>
+		<th>Fluxo UC</th>
+		<th>Planejamento</th>
+		<th>Execução</th>
+		<th>Dev</th>
+		<th class="actions">Ações</td>
+	</tr>
+	
+	<tr>
+		  <td> <input type="text" id="ct" placeholder="Demanda" name="ct"></td>	
+		  
+		  <td> 
+		  <select name="Tester">   	        
+	      <option  value="fabricio" name="fabricio">Fabricio</option>
+		  <option  value="rodrigoB" name="rodrigoB">RodrigoB</option>
+		  <option  value="rodrigoS" name="rodrigoS">RodrigoS</option>
+		  <option  value="vivi" name="vivi">Vivi</option>
+		  <option  value="tiago" name="tiago">Tiago</option>
+     	  </select>
+		  </td>
+
+   		  <td> <input type="text" id="ct" placeholder="CT" name="ct"></td>
+		  <td> <input type="text" id="stm" placeholder="STM" name="stm"></td>
+		  <td> <input type="text" id="uc" placeholder="UC" name="uc"></td>
+		  <td> 
+		  <select name="planejamento">   
+	      <option  value="andamento" name="andamento">Andamento</option>
+		  <option  value="concluido" name="concluido">Concluído</option>
+     	  </select>	
+		  </td>
+		  
+		  		  
+		  <td> 
+		  <select name="execucao">   
+	      <option  value="ok" name="ok">OK</option>
+		  <option  value="teste" name="teste">Teste</option>
+		  <option  value="erro" name="erro">Erro</option>
+		  <option  value="reteste" name="reteste">Reteste</option>
+		  <option  value="corrigido" name="corrigido">Corrigido</option>
+		  <option  value="impedido" name="impedido">Impedido</option>
+     	  </select>
+		  </td>
+			
+		  <td> 
+		  <select name="Dev">   	        
+	      <option  value="fabricio" name="fabricio">Fabricio</option>
+		  <option  value="everson" name="everson">Everson</option>
+		  <option  value="cristiano" name="cristiano">Cristiano</option>
+		  <option  value="anderson" name="anderson">Anderson</option>
+		  <option  value="guilherme" name="guilherme">Guilherme</option>
+     	  </select>
+		  </td>
+		  <td class="actions"> 
+			<button class="btn btn-large btn-danger" onclick="RemoveTableRow(this)" type="button"> x </button>
+		  </td>	
+	</tr>		
+   </tbody>
+	<tfoot>
+		<tr>
+			<td colspan="9" style="text-align: left;"> 
+				<button class="btn btn-large btn-success" onclick="AddTableRow(this);tableToJson(data)" type="button"> + </button>
+				<a href="#" onclick="download_table_as_csv('products-table');">Download CSV</a>
+			 </td>	
+		</tr>
+	</tfoot>
+
+   </table>
+
+</div>
+<!--/div-->
+
+
+
+
+
+</body>
+</html>

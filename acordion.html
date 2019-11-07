@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.accordion:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+</head>
+<body>
+
+<h2>Tutorial</h2>
+<p>Atendimento de demandas</p>
+<button class="accordion">1.Montar a Organização do Planejamento (estrutura de pastas local)</button>
+<div class="panel">
+<p> Sugestão:<br>
+<img class="img-responsive"  src="estrutura.png" height="" width="">
+</p>
+</div>
+
+<button class="accordion">2.Pesquisar a versão no <a href="http://df7390sr006/siste/STE_Resumo_Atividades_Busca.asp">
+SISTE</a> no menu Versões > Quadro-Resumo: </button>
+<div class="panel">
+  <p>
+	<li>Depois o numero da demanda</li>
+	<li>Clicar no numero da demanda para detalhar </li>
+	<li>Expandir a relação de documentos envolvidos em “IMPACTOS DIRETAMENTE RELACIONADOS”</li>
+  </p>
+</div>
+
+<button class="accordion">3.Acessar o CLEAR CASE</button>
+<div class="panel">
+  <p>
+<li>Pesquisar pela lista de situações em Planejamento > Lista de situações</li>
+<li>Pesquisar pelo caso de uso em Requisitos > Especificações</li>
+<li>Especificar os fluxos na lista de Situação confome o item “3.2” do 
+<a href="\\df7390et869\PUBMOVE\FABRICIO DUARTE\Notepad++\util\listaRoteiro.html">
+Roteiro</a> e salvar na pasta “Documentos” de sua organização local</li>
+  </p>
+</div>
+
+<button class="accordion">4.Fazer o planejamento pelo Roteiro conforme a partir do item “3.3”  do 
+<a href="\\df7390et869\PUBMOVE\FABRICIO DUARTE\Notepad++\util\listaRoteiro.html">
+Roteiro</a> </button>
+<div class="panel">
+	<p>Dica:<br>
+	As listas de situação estão com a guia “casos de teste” descontinuadas, os casos de teste estão sendo escritos na “suíte do caso de uso” ou seja ao pesquisar pela <a href="https://gid.caixa:9443/qm/web/console/SIOPI_Gerenciamento_de_Qualidade#action=com.ibm.rqm.planning.home.actionDispatcher&subAction=viewTestPlan&id=276">Estratégia de teste do SIOPI “276”</a>  conforme a imagem teremos um ponto de partida para nos basear ao criar novos planejamentos na prática é assim:
+
+	<li>Digite 276 e selecione estratégia de teste do SIOPI</li>
+	<li>Acione casos de teste no menu lateral</li>
+	<li>Pesquise pelo caso de uso de interesse</li>
+	
+	<img class="img-responsive"  src="estrategia.png" height="" width="">
+	
+	<li>Duplique a guia e copie o caso de teste semelhante ao alvo de teste que esteja planejando e anote os IDs dos CTs e STM em uma lista</li>
+
+	<li>Depois adicione os casos de teste na Suíte da demanda</li>
+	<img class="img-responsive"  src="demanda.png" height="" width="">
+</p>
+</div>
+
+
+<button class="accordion">5.Entregue o planejamento da demanda para validação conforme o item “3.8” do Roteiro </button>
+<div class="panel">
+</div>
+
+<button class="accordion">6.Atualize o andamento do planejamento no SISTE</button>
+<div class="panel">
+<p>
+<img class="img-responsive"  src="siste.png" height="" width="">
+</p>
+</div>
+
+
+<button class="accordion">7.Enquanto aguarda a validação, Capture as evidencias e salve em uma pasta local</button>
+<div class="panel">
+  <p></p>
+</div>
+
+<button class="accordion">8.Após o aceite do planejamento executar testes e subir as evidencias conforme o item “5.4” do Roteiro</button>
+<div class="panel">
+  <p></p>
+</div>
+
+<!--
+<button class="accordion">Section 3</button>
+<div class="panel">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+-->
+
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+
+</body>
+</html>

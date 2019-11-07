@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="" ng-controller="myCtrl">
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <!--script type="text/javascript" src="js/funcao.js"></script>
+  <script src="./PapaParse/papaparse.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/angular.min.js"></script-->
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+
+  
+  
+</head>
+
+<style>
+table, th, td {
+   border: 1px solid black;
+   padding:5px;
+}
+table {
+   border-collapse: collapse;
+   margin:10px;
+}
+</style>
+<body>
+
+<table align="center" >
+            <tr class="borderless">
+                <td>Choose .csv file</td>
+                <td><input type="file" name="readCsvFile" id="readCsvFile" accept=".csv"> </td>
+                <td><input type="button" value="Upload" ng-click="uploadCsvFile()"></td>
+            </tr>
+ </table>
+</div>
+<script>
+
+app.directive('fileReader', function() {
+  return {
+    scope: {
+      fileReader:"="
+    },
+    link: function(scope, element) {
+      $(element).on('change', function(changeEvent) {
+        var files = changeEvent.target.files;
+        if (files.length) {
+          var r = new FileReader();
+          r.onload = function(e) {
+              var contents = e.target.result;
+              scope.$apply(function () {
+                scope.fileReader = contents;
+              });
+          };
+
+          r.readAsText(files[0]);
+        }
+      });
+    }
+  };
+});
+</script>
+<!--script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script-->
+</body>
+</html>

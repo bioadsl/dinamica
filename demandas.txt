@@ -1,0 +1,54 @@
+De: Adriana Guanais Alves 
+Enviada em: quinta-feira, 4 de julho de 2019 15:17
+Para: Renato Dias de Farias
+Assunto: ENC: Pesquisa Pré Julho 
+
+Renato
+
+Todas que estão marcadas com 1 são prioritarias.
+10822953 (prioritária)
+10706981 (Prioritária)
+
+Não prioritárias mais importante atender
+3,4,5,6,7
+
+atenciosamente,
+ADriana Guanais
+
+De: Adriana Guanais Alves 
+Enviada em: terça-feira, 18 de junho de 2019 15:04
+Para: Anderson Luis Silva Borges; Guilherme Batista Soares; Fabricio Fernandes Freitas; Thiago Martins de Souza; Tiago Vasques Guimaraes; Ricardo Ventura de Almeida
+Assunto: RES: Pesquisa Pré Julho 
+
+Planilha "PLANEJAMENTO 2 SEM 2019" disponibilizada \\df7390et741\HABITACAO_DEMANDAS\DEMANDAS
+
+atenciosamente,
+Adriana Guanais
+De: Adriana Guanais Alves 
+Enviada em: terça-feira, 18 de junho de 2019 14:53
+Para: Anderson Luis Silva Borges; Guilherme Batista Soares; Fabricio Fernandes Freitas; Thiago Martins de Souza; Tiago Vasques Guimaraes; Ricardo Ventura de Almeida
+Assunto: Pesquisa Pré Julho 
+
+
+
+Meninos
+
+Seguem as demandas da branch Pesquisa Pré Julho com a priorização previsão de entrega 12/07/2019 (Requisito, Desenvolvimento e Teste):
+
+1	10417888		55	26.512,48
+1	10706981	Complementar IFRS-9 - Reprocessamento dos arquivos do IFRS-9 referente aos meses Julho e Setembro/2018 e Janeiro/2019
+1	NA	Simulador taxa customizada: incluir identificação propostas ag. Digital - RENOP
+1	10572887		8	3.856,36
+1	10618889		4	1.928,18
+2	10417058	GESIH - SIOPI - Criar taxas diferenciadas conforme fase de evolução dos contratos	72	34.707,24
+2	10687320	Ajuste para represar as OS's concluidas em dias não úteis e envio ao SIACI no próximo dia útil		
+3	2401405		28	19.281,80
+4	8350074			
+5	10479768		8	3.856,36
+6	10479799		28	5.784,54
+7	10479846		4	1.928,18
+
+
+
+atenciosamente,
+Adriana Guanais

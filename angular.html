@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <!--script type="text/javascript" src="js/funcao.js"></script>
+  <script src="./PapaParse/papaparse.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/angular.min.js"></script-->
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+   <script src="./PapaParse/papaparse.js"></script>
+
+   
+    <script>
+	
+   // Quick and simple export target #table_id into a csv
+function download_table_as_csv(table_id) {
+    // Select rows from table_id
+    var rows = document.querySelectorAll('table#' + table_id + ' tr');
+    // Construct csv
+    var csv = [];
+    for (var i = 1; i < rows.length; i++) {
+        var row = [], cols = rows[i].querySelectorAll('td, th');
+        for (var j = 0; j < cols.length; j++) {
+            // Clean innertext to remove multiple spaces and jumpline (break csv)
+            var data = cols[j].innerText.replace(/(\r\n|\n|\r)/gm, '').replace(/(\s\s)/gm, ' ')
+            // Escape double-quote with double-double-quote (see https://stackoverflow.com/questions/17808511/properly-escape-a-double-quote-in-csv)
+            data = data.replace(/"/g, '');
+            // Push escaped string
+            row.push('' + data + '');
+        }
+        csv.push(row.join(';'));
+    }
+    var csv_string = csv.join('\n');
+	
+		
+	// Download it
+    var d = new Date();
+	var filename = table_id + '_' + d.toLocaleDateString()+ '_' + d.getHours()+ '_' + d.getMinutes() + '_' + d.getSeconds() + '.csv';
+    var link = document.createElement('a');
+    link.style.display = 'none';
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+   
+   //------
+   
+
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+   
+    
+    </script>
+
+   
+   
+   
+   </head>
+<body>
+
+<div >
+
+	<div ng-app="myApp" ng-controller="myCtrl" >
+				<div class="panel panel-default">
+						<div class="panel-heading">
+
+						<center><h2>Distribuição de demandas</h2></center>
+				</div>
+
+			</div>
+			
+															<div class="form-group">				
+																<div class="col-xs-12 col-sm-1">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.numero"  placeholder="DMS">
+																</div>						
+															</div>
+														
+															<div class="form-group">				
+																<div class="col-xs-12 col-sm-1">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.tester"  placeholder="Tester">
+																</div>						
+															</div>
+															
+																			
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-1">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.ct"  placeholder="CT">
+																</div>									
+															</div>
+																					
+														
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-1">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.stm"  placeholder="STM">
+																</div>								
+															</div>
+																																		
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-2">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.fluxo"  placeholder="Fluxo">
+																</div>									
+															</div>
+																												
+															
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-1">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.planejamento"  placeholder="Plano">
+																</div>								
+															</div>
+																													
+																			
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-2">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.execucao"  placeholder="Execução">
+																</div>									
+															</div>
+															
+																		
+															
+															<div class="form-group">
+																	<div class="col-xs-12 col-sm-2">
+																	<input type="text" class="form-control" id="name" ng-model="demanda.dev" placeholder="Desenvolvedor">
+																</div>								
+															</div>
+																				
+															<div class="form-group">
+																<div class="col-xs-12 col-md-1">
+																	<button type="button" class="btn btn-default" ng-click="adicionar();">
+																	<span class="glyphicon glyphicon-plus"></span> </button>
+																	</button>
+																	</div>
+															</div>
+															<br>													
+		<div class="panel-body" style="margin-top:20px;">		
+				<table  id="arquivo" class="table table-bordered">	
+						<thead>
+						
+							<tr>
+								<th>Demanda</th>
+								<th>Tester</th>
+								<th>CT</th>
+								<th>STM</th>
+								<th>Fluxo UC</th>
+								<th>Planejamento</th>
+								<th>Execução</th>
+								<th>Dev</th>
+								<th class="actions">Ações</td>
+							</tr>
+							
+						</thead>
+										
+						<tbody>
+						
+							<tr ng-repeat="x in listaDemandas | orderBy : 'ct' ">
+								<td><a  target='_blank' href='https://gid.caixa:9443/qm/web/console/SIOPI_Gerenciamento_de_Qualidade#action=com.ibm.rqm.planning.home.actionDispatcher&subAction=doSearch&searchText={{x.numero}}'>{{x.numero}}</td>
+								<td>{{x.tester}}</td>
+								<td><a  target='_blank'  href='https://gid.caixa:9443/qm/web/console/SIOPI_Gerenciamento_de_Qualidade#action=com.ibm.rqm.planning.home.actionDispatcher&subAction=viewTestCase&id={{x.ct}}'>{{x.ct}}</td>
+								<td><a   target='_blank'  href='https://gid.caixa:9443/qm/web/console/SIOPI_Gerenciamento_de_Qualidade#action=com.ibm.rqm.planning.home.actionDispatcher&subAction=viewTestScript&id={{x.stm}}'>{{x.stm}}</a></td>
+								<td>{{x.fluxo}}</td>
+								<td>{{x.planejamento}}</td>
+								<td>{{x.execucao}}</td>
+								<td>{{x.dev}}</td>
+								<td>
+								<button class="btn btn-default btn-xs" ng-click="alterar($index);">
+									<span class="glyphicon glyphicon glyphicon-pencil"></span>
+								</button>
+								<button class="btn btn-default btn-xs" ng-click="removeItem($index)">
+									<span class="glyphicon glyphicon glyphicon-remove"></span>
+								</button>
+										
+								</td>	
+							</tr>
+							
+						</tbody>
+						
+				</table>
+			
+				<div class="col-md-12">
+					<div class="col-md-1">
+						<button class="btn btn-default" onclick="download_table_as_csv('arquivo');" type="button"> 
+						<span class="glyphicon glyphicon-download-alt"></span> </button>
+						</div>
+					<div class="col-md-6">	
+						
+						<p>Salvar o arquivo gerado pela tabela acima  =><b>\\df7390et512\Backup\util\arquivos</b>  </a></p>
+								
+						<div class="container mt-3">						
+												 	<div class= class="form-group">															  
+															<input type="file" class="btn btn-default" file-reader="fileContent"/>
+																
+													</div>
+							</div>
+						
+						
+						
+					</div>
+				</div>
+			
+		</div>
+		
+
+
+
+
+<script>
+
+//monta a tabela
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	$scope.listaDemandas= [];
+	$scope.demanda={
+		numero: '',
+		tester:'',
+		ct:'',
+		stm:'',
+		fluxo:'',
+		execucao:'',
+		dev:''
+		
+	};
+	
+	$scope.lerArquivo = function(contents){
+		$scope.listaDemandas = [];
+		$scope.conteudoArquivo = contents;
+		$scope.listaConteudo = $scope.conteudoArquivo.split("\n");
+		 angular.forEach($scope.listaConteudo, function(value, key){
+			var conteudo = value.split(";");
+			if(conteudo && conteudo[0]){
+				$scope.demanda.numero = conteudo[0];
+				$scope.demanda.tester = conteudo[1];
+				$scope.demanda.ct = conteudo[2];
+				$scope.demanda.stm = conteudo[3];
+				$scope.demanda.fluxo = conteudo[4];
+				$scope.demanda.planejamento = conteudo[5];
+				$scope.demanda.execucao = conteudo[6];
+				$scope.demanda.dev = conteudo[7];
+				$scope.listaDemandas.push($scope.demanda);
+				$scope.limparDemanda();
+			}
+	   });
+	
+	}
+	
+	$scope.adicionar = function(){
+		$scope.listaDemandas.push($scope.demanda);
+		$scope.limparDemanda();
+	}
+
+	$scope.limparDemanda = function(){
+		$scope.demanda = {
+			demanda: '',
+			tester:'',
+			ct:'',
+			stm:'',
+			fluxo:'',
+			execucao:'',
+			dev:''
+		};
+	}
+
+	$scope.alterar=function(index){
+		$scope.demanda = $scope.listaDemandas[index];
+		$scope.removeItem(index);
+	}
+
+	$scope.removeItem = function(index){
+		$scope.listaDemandas.splice(index, 1);
+	}
+
+});
+
+
+// le arquivo
+app.directive('fileReader', function() {
+  return {
+    scope: {
+      fileReader:"="
+    },
+    link: function(scope, element) {
+      $(element).on('change', function(changeEvent) {
+        var files = changeEvent.target.files;
+        if (files.length) {
+          var r = new FileReader();
+			r.onloadend = function(e) {
+              var contents = e.target.result;
+              scope.$apply(function () {
+                scope.fileReader = contents;
+				scope.$parent.lerArquivo(contents);
+			});
+			
+			
+			  
+          };
+
+          
+		  r.readAsText(files[0]);
+        }
+      });
+    }
+  };
+});
+
+
+
+// Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+
+
+
+</script>
+
+</div>
+</body>
+</html>

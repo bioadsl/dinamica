@@ -1,0 +1,84 @@
+Demanda;Tester;CT;STM;Fluxo UC;Planejamento;Execucao;Desenvolvedor
+10938012;;89584;72937;FA3. Autoriza Proposta e/ou Lote;OK;Erro;Everson
+10938012;;89603;72964;FA4. Desautoriza Proposta e/ou Lote;OK;Erro;
+10938012;;88736;72817;FB. Autorizar Excecao Proposta de Empreendimento;OK;Erro;Everson
+10938012;;89505;72861;FA1. Altera dados complementares do empreendimento;OK;Erro;Everson
+10938012;;89508;72863;FA3. Detalha condições especiais ;OK;Erro;Everson
+10938012;;89511;72867;FA30. Altera situacao para “Vistoria Concluída”;OK;ERRO;
+10938012;;89547;72902;FA16. Altera situacao para “Laudo finalizado”;OK;OK;
+10938012;;89552;72906;FA1. Altera Carencia PJ;OK;ERRO;Cristiano
+10938012;;89570;72923;FA8. Cancela encaminhamento de proposta e/ou documentos;OK;ERRO;Everson
+10938012;;89585;72936;FB. Consulta Encaminhamentos de Proposta e/ou Documentos ;OK;OK;
+10938012;;89596;72944;FA5. Gera número de contrato para Administracao;OK;OK;
+10938012;;89597;72946;FA6. Recebe proposta e/ou documentos;OK;OK;
+10938012;;89413;72787;FB. Solicita suspensão da proposta;OK;OK;
+10938012;;89415;72789;FA6. Solicita Alteracao da Etapa da Proposta;OK;ERRO;
+10938012;;89418;72792;FA5. Efetiva reativacao da proposta;OK;OK;
+10938012;;89425;72796;FA1. Efetiva suspensão da proposta;OK;OK;
+10938012;;89280;72705;FB. Consulta Solicitacao de Processamento da Proposta de empreendimento;OK;ERRO;Cristiano
+10938012;;89303;72712;FA4. Consulta Solicitacao de Proces samento da proposta vinculada ou proposta individual;OK;OK;
+10938012;;89381;72769;FA1. Detalha a solicitacao do processamento;OK;OK;
+10938012;;89390;72774;FA3. Visualiza lista de mensagens da proposta ou da migracao;OK;OK;
+10938012;;89393;72777;FB. Confirma Assinatura;OK;OK;
+10938012;;89399;72780;FA1. Finaliza Proposta;OK;OK;
+10938012;;89403;72782;FA2. Cancela confirmacao da assinatura ;OK;OK;
+10938012;;89410;72785;FA6. Reverte Contratacao da Proposta;OK;OK;
+10938012;;89600;72954;FA8. Altera clausulas adicionais;OK;OK;
+10938012;;89665;73038;FA2. Baixa Documento;OK;ERRO;Everson
+10938012;;89626;72993;FA3. Cancela emissão de Documentos ;OK;ERRO;Everson
+10938012;;89621;72984;FB. Emite Documentos da Proposta Individual;OK;ERRO;Everson
+10938012;;89642;73010;FA23. Enquadra documentos;OK;ERRO;Everson
+10938012;;89681;73064;FA24. Sobrescreve qualificacao dos participantes;OK;OK;
+10938012;;89649;73018;FA18. Gera automaticamente as qualificações dos participantes ;OK;OK;
+10938012;;89620;72983;4.1. Fluxo Basico – Gera Planilha de Evolucao da Proposta;OK;OK;
+10938012;;89622;72985;FA2. Imprime Planilha de Evolucao;OK;OK;
+10938012;;89658;73024;FA2. Consulta historico do parecer de conformidade;OK;OK;
+10938012;;89667;73045;FA1. Inclui Parecer Jurídico;OK;OK;
+10938012;;89683;73065;FA12. Exclui Proposta Individual;OK;OK;
+10938012;;89687;73066;FA26. Inclui Convenio à Proposta;OK;OK;
+10938012;;89702;73099;FA44. Altera Convenio da Proposta;OK;Erro;Cristiano
+10938012;;89716;73119;FA45. Recalcula Valores da Operacao;OK;OK;
+10938012;;89721;73124;FA46. Gera Número do Contrato para Administracao;OK;Erro;Cristiano
+10938012;;89751;73171;PE5. Detalha registro de avaliacao do imovel ;OK;OK;
+10938012;;89742;73124;FA31. Exclui Convenio da Proposta;OK;OK;
+10938012;;89749;73169;FA67. Visualiza Espelho da Proposta;OK;OK;
+10938012;;89757;73174;FA38. Trata Data de Agendamento da Assinatura informada;OK;Erro;Erro Persite Cristiano
+10938012;;28208;25511;FA53. Visualiza documentos digitalizados;OK;OK;
+10938012;;89670;73049;FA24. Consulta Liberacao do Empreendimento para Agregacao;OK;OK;
+10938012;;89672;73051;FA2. Exclui Proposta de Empreendimento;OK;Erro;Cristiano
+10938012;;89679;73061;FA14. Encerra agregacao ;OK;Erro;Cristiano
+10938012;;89673;73052;FA32. Altera Enquadramento;OK;Erro;Cristiano
+10938012;;88780;72187;FA19. Permite alterar descricao de unidade habitacional vinculada à proposta;OK;OK;
+10938012;;89110;72255;FA27. Inicia Avaliacao;OK;OK;
+10938012;;89112;73275;FA07. Altera endereço;OK;OK;
+10938012;;89113;72414;FA08. Exclui endereço;OK;OK;
+10938012;;89114;72403;FA11. Exclui Unidade Habitacional ;OK;OK;
+10938012;;89116;72475;FA09. Inclui Unidade Habitacional;OK;Erro;
+10938012;;89118;72529;FA18. Altera unidade habitacional;OK;OK;
+10938012;;89194;72629;FA11. Consulta Pesquisas Cadastrais de Participantes de Proposta;OK;OK;
+10938012;;89708;73113;FA1. Registra Avaliacao do Comite de Crédito;OK;OK;
+10938012;;89718;73121;FA2. Altera Avaliacao do Comite de Crédito;OK;Erro;
+10938012;;89724;73128;FA3. Exclui Avaliacao do Comite de Crédito;OK;Erro;
+10938012;;89750;73170;FA2. Altera vencimento dos documentos;OK;Erro;
+10938012;;89752;73172;FA4. Registra conformidade de documentos;OK;Erro;
+10938012;;89754;73175;FA6. Altera conformidade da lista de documentos;OK;OK;
+10938012;;89790;73207;FB. Consulta Pendencias da Lista de Verificacao;OK;OK;OK
+10938012;;89796;73213;FA1. Registra analise da lista de verificacao;OK;OK;OK
+10938012;;89802;73216;FA5. Visualiza Historico de Analises Efetuadas;OK;OK;OK
+10938012;;89871;73241;FA1. Vincula Novo Participante;OK;Erro;
+10938012;;89873;73242;FA2. Altera Participante;OK;Erro;Everson
+10938012;;89876;73244;FA3. Desvincula Participante;OK;Erro;Everson
+10938012;;89877;73246;FA23. Atualiza Avaliacao de Risco de Tomador;OK;Erro;Everson
+10938012;;89859;73248;FA32. Atualiza participante com os dados do SICLI;OK;OK;
+10938012;;89874;73265;FA41. Altera Pactuacao de Renda para Fins Securitarios;OK;Erro;
+10938012;;89861;73254;FA40. Consulta Pactuacao de Renda para Fins Securitarios;OK;OK;
+10938012;;89792;73210;FB. Solicita validacao do lote de contratacao inicial no SIACI;OK;Erro;Cristiano
+10938012;;89808;73220;FA5. Altera dados adicionais do imovel;OK;OK;
+10938012;;89811;73222;FA6. Desvincula Imovel;OK;OK;
+10938012;;89817;73224;FA2. Vincula imovel;OK;OK;
+10938012;;89847;73233;FB. Substitui Unidade Habitacional Vinculada;OK;OK;Cristiano
+10938012;;89855;73239;FA1. Informa Dados Adicionais da Unidade Habitacional Vinculada;OK;OK;Cristiano
+10938012;;89880;73267;FA21. Atualiza participante da proposta ou pré-contratacao com os dados do SICLI ;OK;OK;
+10938012;;N existe;N existe;FA8. Alterar Agendamento;N existe;N existe;N existe
+10938012;;N existe;N existe;FA9. Cancelar Agendamento;N existe;N existe;N existe
+10938012;;89391;72775;FB. Solicita Transferencia de Proposta entre Agencias;OK;Não existe funcionalidade (retirado da suite de caso de uso);Ñ existe(retirado da sut_UC)

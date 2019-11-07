@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+<style>
+table {
+  width:100%;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+table#myTable tr:nth-child(even) {
+  background-color: #eee;
+}
+table#myTabletr:nth-child(odd) {
+ background-color: #fff;
+}
+table#myTable th {
+  background-color: black;
+  color: white;
+}
+
+
+</style>
+</head>
+<body>
+<div class="container">
+<p>Preencha os campos e adicione uma nova linha na planilha</p>
+
+<form class="form-inline" action="" >
+  <label for="ct"> </label>
+  <input type="text" id="ct" placeholder="CT" name="ct">
+ 
+ <label for="stm"></label>
+  <input type="text" id="stm" placeholder="STM" name="stm">
+
+  <label for="uc"></label>
+  <input type="text" id="uc" placeholder="UC" name="uc">
+
+  <label for="planejamento"> </label>
+  <input type="text" id="planejamento" placeholder="Planejamento" name="planejamento">
+  
+  <label for="execucao"> </label>
+  <input type="text" id="execucao" placeholder="Execução" name="execucao">
+  
+  <label for="correcao"> </label>
+  <input type="text" id="correcao" placeholder="Correção" name="correcao">
+ 
+ 
+ 
+  <input type="button" onclick="myCreateFunction();myFunction()" value="Incluir">
+</form>
+
+<br>
+<br>
+
+
+<table id="myTable" table class="table table-striped">
+  <thead>
+  <tr>
+   
+   <td>CT</td>
+    <td>STM</td>
+    <td>Fluxo UC</td>
+    <td>Planejamento</td>
+    <td>Execução</td>
+    <td>Correção</td>
+	<td>Acões</td>
+	</tr>
+   </thead>
+ </table>
+<br>
+<p id="demo"></p>
+
+
+<button onclick="myCreateFunction()">Incluir</button>
+<button onclick="myDeleteFunction()">Excluir</button>
+
+
+
+<script>
+function myCreateFunction() {
+  var table = document.getElementById("myTable");
+  var row = table.insertRow(1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  var cell7 = row.insertCell(6);
+  cell1.innerHTML = document.getElementById("ct").value;
+  cell2.innerHTML = document.getElementById("stm").value;
+  cell3.innerHTML = document.getElementById("uc").value;
+  cell4.innerHTML = document.getElementById("planejamento").value;
+  cell5.innerHTML = document.getElementById("execucao").value;
+  cell6.innerHTML = document.getElementById("correcao").value;
+  cell7.innerHTML = document.getElementById("correcao").value;
+
+}
+
+function myDeleteFunction() {
+  document.getElementById("myTable").deleteRow(1);
+  
+}
+
+function myFunction() {
+  var x = document.getElementById("myTable").rows.length;
+  document.getElementById("demo").innerHTML = x + " linhas.";
+}
+
+
+ $( "button.excluir" ).click(function() {
+    $(this).parent().parent().remove();
+    });
+
+</script>
+</div>
+</body>
+</html>

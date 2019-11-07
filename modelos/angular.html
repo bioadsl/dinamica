@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <!--script type="text/javascript" src="js/funcao.js"></script>
+  <script src="./PapaParse/papaparse.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/angular.min.js"></script-->
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl" class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+
+				<center><h2>Cadastro de demandas</h2></center>
+				</div>
+
+			</div>
+			
+			<div class="panel-body">
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Demanda:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.numero">
+					</div>
+									
+				</div>
+			
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Tester:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.tester">
+					</div>
+									
+				</div>
+				
+								
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>CT:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.ct">
+					</div>
+									
+				</div>
+			
+			
+			
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>STM:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.stm">
+					</div>
+									
+				</div>
+		
+		
+		
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Fluxo:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.fluxo">
+					</div>
+									
+				</div>
+				
+				
+				
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Planejamento:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.planejamento">
+					</div>
+									
+				</div>
+				
+				
+				
+								
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Execução:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.execucao">
+					</div>
+									
+				</div>
+				
+				
+				
+				
+				<div class="form-group row">
+					<div class="col-sm-6">	
+						<div class="col-sm-2">
+							<label>Dev:</label>
+						</div>							
+					</div>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="name" ng-model="demanda.dev">
+					</div>
+									
+				</div>
+									
+				<div class="col-md-12">
+					<div class="col-md-1">
+						<button type="button" class="btn btn-success" ng-click="adicionar();">Adicionar</button>
+					</div>
+					<div class="col-md-6">	
+						<input type="file" class="btn btn-success" file-reader="fileContent"/>
+					</div>
+				</div>
+
+			</div>
+			
+			
+		
+			<div class="panel panel-default">
+				<div class="panel-heading">
+
+				<center><h2>Controle de demandas</h2></center>
+				</div>
+
+			</div>
+		
+		<div class="panel-body">
+			
+				<table class="table table-bordered">
+						<thead>
+						
+							<tr>
+								<th>Demanda</th>
+								<th>Tester</th>
+								<th>CT</th>
+								<th>STM</th>
+								<th>Fluxo UC</th>
+								<th>Planejamento</th>
+								<th>Execução</th>
+								<th>Dev</th>
+								<th class="actions">Ações</td>
+							</tr>
+							
+						</thead>
+						
+						<tbody>
+						
+							<tr ng-repeat="x in listaDemandas">
+								<td>{{x.numero}}</td>
+								<td>{{x.tester}}</td>
+								<td>{{x.ct}}</td>
+								<td>{{x.stm}}</td>
+								<td>{{x.fluxo}}</td>
+								<td>{{x.planejamento}}</td>
+								<td>{{x.execucao}}</td>
+								<td>{{x.dev}}</td>
+								<td>
+								<button class="btn btn-default" ng-click="alterar($index);">
+									<span class="glyphicon glyphicon glyphicon-pencil"></span>
+								</button>
+								<button class="btn btn-default" ng-click="removeItem($index)">
+									<span class="glyphicon glyphicon glyphicon-remove"></span>
+								</button>
+										
+								</td>	
+							</tr>
+							
+						</tbody>
+				</table>
+				
+			
+		</div>
+		
+</div>
+
+
+
+<script>
+
+//monta a tabela
+
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	$scope.listaDemandas= [];
+	$scope.demanda={
+		numero: '',
+		tester:'',
+		ct:'',
+		stm:'',
+		fluxo:'',
+		execucao:'',
+		dev:''
+		
+	};
+	
+	$scope.lerArquivo = function(contents){
+		$scope.listaDemandas = [];
+		$scope.conteudoArquivo = contents;
+		$scope.listaConteudo = $scope.conteudoArquivo.split("\n");
+		 angular.forEach($scope.listaConteudo, function(value, key){
+			var conteudo = value.split(";");
+			if(conteudo && conteudo[0]){
+				$scope.demanda.numero = conteudo[0];
+				$scope.demanda.tester = conteudo[1];
+				$scope.demanda.ct = conteudo[2];
+				$scope.demanda.stm = conteudo[3];
+				$scope.demanda.fluxo = conteudo[4];
+				$scope.demanda.planejamento = conteudo[5];
+				$scope.demanda.execucao = conteudo[6];
+				$scope.demanda.dev = conteudo[7];
+				$scope.listaDemandas.push($scope.demanda);
+				$scope.limparDemanda();
+			}
+	   });
+	
+	}
+	
+	$scope.adicionar = function(){
+		$scope.listaDemandas.push($scope.demanda);
+		$scope.limparDemanda();
+	}
+
+	$scope.limparDemanda = function(){
+		$scope.demanda = {
+			demanda: '',
+			tester:'',
+			ct:'',
+			stm:'',
+			fluxo:'',
+			execucao:'',
+			dev:''
+		};
+	}
+
+	$scope.alterar=function(index){
+		$scope.demanda = $scope.listaDemandas[index];
+		$scope.removeItem(index);
+	}
+
+	$scope.removeItem = function(index){
+		$scope.listaDemandas.splice(index, 1);
+	}
+
+});
+
+
+// le arquivo
+app.directive('fileReader', function() {
+  return {
+    scope: {
+      fileReader:"="
+    },
+    link: function(scope, element) {
+      $(element).on('change', function(changeEvent) {
+        var files = changeEvent.target.files;
+        if (files.length) {
+          var r = new FileReader();
+			r.onloadend = function(e) {
+              var contents = e.target.result;
+              scope.$apply(function () {
+                scope.fileReader = contents;
+				scope.$parent.lerArquivo(contents);
+			});
+			
+			
+			  
+          };
+
+          
+		  r.readAsText(files[0]);
+        }
+      });
+    }
+  };
+});
+
+</script>
+
+
+</body>
+</html>

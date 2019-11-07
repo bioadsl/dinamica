@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Links Uteis</title>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="funcoes.js"></script>
+
+
+
+</head>
+
+<BODY scroll=yes>
+<span class="NumSecao">
+<p>Preencha os campos e adicione uma nova linha na planilha</p>
+<HR>
+<br>
+    <style>    
+        table,th,td
+        {
+            border:1px solid #D9D9F3;;
+            border-collapse:collapse;
+            font-family: Arial,sans-serif;
+            font-size: 12px;
+
+            }
+        input.noBorder{ border:0px solid transparent; padding: 3px;}
+        input.noBorder:FOCUS{ background-color: #C0D9D9;}
+
+
+    </style>
+    <form>
+    <table id="tblCadastro"> 
+			<thead>
+					<tr>				   
+						<td>CT</td>
+						<td>STM</td>
+						<td>Fluxo UC</td>
+						<td>Planejamento</td>
+						<td>Execução</td>
+						<td>Correção</td>
+						<td>Acões</td>
+					</tr>
+		   </thead>
+            <tbody>
+                <tr>
+					<td><input type="text" class="noBorder" name="cod_ct" id="cod_ct"/></td>
+					<td><input type="text" class="noBorder" name="cod_stm" id="cod_stm"/></td>
+					<td><input type="text" class="noBorder" name="cod_uc" id="cod_uc" /></td>
+					<td><input type="text" class="noBorder" name="cod_planejamento" id="cod_planejamento" /></td>
+					<td><input type="text" class="noBorder" name="cod_execucao" id="cod_execucao" /></td>
+					<td><input type="text" class="noBorder" name="cod_correcao" id="cod_correcao" /></td> 
+					<td><button class='btn btn-danger button.excluir'><i class='fa fa-trash-o'></i>X</button></td>	
+				</tr>
+            </tbody>
+   </table>
+
+                     <button id="adicionar" type="button" onclick="adicionarLinha();"> Adicionar </button>            
+            </form>            
+
+  <script>
+            /* Funcao responsavel por replicar as linhas da tabela */
+    function adicionarLinha(registro){
+        document.getElementById("tblCadastro").innerHTML += "<tr><td><input type='text' class='noBorder' name='cod_ct' id='cod_ct'/></td><td><input type='text' class='noBorder' name='cod_stm' id='cod_stm'/></td> <td><input type='text' class='noBorder' name='cod_uc' id='cod_uc' /></td>  <td><input type='text' class='noBorder' name='cod_planejamento' id='cod_planejamento' /></td> <td><input type='text' class='noBorder' name='cod_execucao' id='cod_execucao'  /></td>   <td><input type='text' class='noBorder' name='cod_correcao' id='cod_correcao' /></td> <td><button class='btn btn-danger button.excluir'><i class='fa fa-trash-o'></i>X</button></td></tr>";
+		}
+
+		
+		
+ </script>
+<script>
+    $( "button.excluir" ).click(function() {
+        $(this).parent().parent().remove();
+    });
+</script>
+
+</body>
+</html>
